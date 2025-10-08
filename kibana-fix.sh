@@ -1,8 +1,20 @@
 #!/bin/bash
 
-#echo "${0}"
-#echo "${1}"
-#exit
+#===============================================================================
+# Quick script to configure the CDNWv4 Elasticsearch service for a startup
+# timeout of 600 seconds instead of the 'as distributed' 75 seconds, and restart
+# the Elasticsearch and Kibana services.
+#
+# Symptom that indicates this may be necessary: The student browses to
+# http://localhost and receives a 'Kibana server is not ready yet' message on an
+# otherwise blank page.
+#
+# After the services are restarted, the script loops for up to 5 minutes while
+# querying Kibana for the page indicating that it's ready.  Run this with
+# '-verbose' to see the first 10 lines of each query during that loop.
+#-------------------------------------------------------------------------------
+# Greg Scheidel, 2025.10.08
+#-------------------------------------------------------------------------------
 
 # Check to make sure this script is running as root.
 if [[ `id -u` -ne 0 ]]; then
