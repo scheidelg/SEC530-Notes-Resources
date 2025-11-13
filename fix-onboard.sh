@@ -4,6 +4,7 @@
 # Remove old Onboard, install GitHub version into /opt/onboard,
 # recreate menu entry, and apply preferred settings.
 #
+# Created by James Leyte-Vidal 2025.11.13
 
 set -euo pipefail
 
